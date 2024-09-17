@@ -1,0 +1,5 @@
+This module is used to connect all home servers with this device, 
+which, according to the main idea, can be located anywhere. 
+The module uses ngrok for port forwarding, which is free, but not the best solution. 
+If you have a home server with a static IP, I advise you to use another module 
+(which I myself will most likely write in the future, and if not, then you will have to do it)

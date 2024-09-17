@@ -1,0 +1,12 @@
+{% for i in plugins.keys() %}
+{% for d in plugins[i]['pages'] %}
+<li class="nav-item menu-items">
+<a class="nav-link" href="{{ d['url'] }}">
+  <span class="menu-icon">
+	<i style="color: #00d25b;" class="{{ plugins[i]['icon'] }}"></i>
+  </span>
+  <span class="menu-title">{{ d['name'] }}</span>
+</a>
+</li>
+{% endfor %}
+{% endfor %}

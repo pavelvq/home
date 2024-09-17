@@ -1,0 +1,1 @@
+Used to manage the resources of the connected computer

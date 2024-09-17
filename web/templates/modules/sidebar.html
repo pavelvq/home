@@ -1,0 +1,63 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+<a class="sidebar-brand brand-logo" href="/" style="
+    font-size: 1.7rem;
+"><strong style="
+    color: #ffffffcf;
+    font-size: 33px;
+    font-family: 'Rubik';
+    /* font-size: 1.7rem; */
+">H<strong style="color: #00d25b;" >O</strong>MEYE</strong></a>
+          <a class="sidebar-brand brand-logo-mini" href="/" style="
+    color: #dfdfdf;
+"><strong>👀</strong></a>
+        </div>
+        <ul class="nav plmenu">
+          <li class="nav-item nav-category">
+            <span class="nav-link">Home</span>
+          </li>
+		  <li class="nav-item menu-items">
+			<a class="nav-link" href="/home">
+			  <span class="menu-icon">
+				<i style="color: #00d25b;" class="mdi mdi-home"></i>
+			  </span>
+			  <span class="menu-title">Hello!</span>
+			</a>
+		  </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="/dashboard">
+              <span class="menu-icon">
+                <i style="color: #00d25b;" class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#module" aria-expanded="false" aria-controls="module">
+              <span class="menu-icon">
+                <i style="color: #00d25b;" class="mdi mdi-security"></i>
+              </span>
+              <span class="menu-title">Module</span>
+              <i style="color: #00d25b;" class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="module">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/module/settings"> Settings </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/module/wifi"> Wifi </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/module/ssh"> SSH </a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Plugins</span>
+          </li>
+        </ul>
+      </nav>
+	  
+<script>
+
+fetch("/plugins").then((response) => {
+  response.text().then((text) => {
+    document.getElementsByClassName("plmenu")[0].innerHTML += text;
+  });
+})
+</script>

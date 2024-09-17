@@ -1,0 +1,151 @@
+<thead>
+  <tr>
+  	<th> Connect </th>
+	<th> SSID </th>
+	<th> BSSID </th>
+	<th> Password </th>
+	<th> Standard </th>
+	<th> Interface </th>
+	<th> Status </th>
+  </tr>
+</thead>
+<tbody>
+{% for i in scan[0] %}
+  <tr>
+	{% if not i == [] %}
+		{% if i[0] == connected %}
+		<td> <button type="button" class="btn btn-danger" onclick="disconnect()">Disconnect</button> </td>
+		{%else%}
+		<td> <button type="button" class="btn btn-success" onclick='connect("{{ i[0] }}")'>Connect</button> </td>
+		{% endif %}
+		<td> {{ i[0] }} </td>
+		<td> {{ i[1] }} </td>
+		{% if i[2] == None %}
+			<td> <input type="text" id="passfield{{ i[5] }}" style="
+			background-color: #090a0e;
+			/* border-color: #191a21; */
+			color: #6c7293;
+			border: none;
+			width: 50%;
+			height: 100%;
+			" value="{{ i[2] }}" disabled> </td>
+		{%else%}
+			<td> <input type="password" id="passfield{{ i[5] }}" style="
+			background-color: #090a0e;
+			/* border-color: #191a21; */
+			color: #6c7293;
+			border: none;
+			width: 50%;
+			height: 100%;
+			" value="{{ i[2] }}" disabled> <button type="button" class="btn btn-outline-secondary" style="border-color: #00d25b00;" onclick="showpass('{{ i[5] }}')">+/-</button> </td>
+		{% endif %}	
+		<td> <input style="
+		background-color: #090a0e;
+		/* border-color: #191a21; */
+		color: #6c7293;
+		border: none;
+		width: 30%;
+		height: 100%;
+	" value="TRUE" disabled> <button type="button" class="btn btn-outline-danger" style="border-color: #00d25b00;" onclick='rstandard()'>-</button></td>
+		<td> {{ i[4] }} </td>
+		<td>
+			{% if i in scan[1] %}
+			<div class="badge badge-outline-success">Standard</div>
+			{%else%}
+			<div class="badge badge-outline-warning">Standard</div>
+			{% endif %}
+		</td>
+	  </tr>
+	{% endif %}
+{% endfor %}
+
+{% for i in scan[1] %}
+  <tr>
+	{% if not i in scan[0] %}
+		{% if i[0] == connected %}
+		<td> <button type="button" class="btn btn-danger" onclick="disconnect()">Disconnect</button> </td>
+		{%else%}
+		<td> <button type="button" class="btn btn-success" onclick='connect("{{ i[0] }}")'>Connect</button> </td>
+		{% endif %}
+		<td> {{ i[0] }} </td>
+		<td> {{ i[1] }} </td>
+		{% if i[2] == None %}
+			<td> <input type="text" id="passfield{{ i[5] }}" style="
+			background-color: #090a0e;
+			/* border-color: #191a21; */
+			color: #6c7293;
+			border: none;
+			width: 50%;
+			height: 100%;
+			" value="{{ i[2] }}" disabled> </td>
+		{%else%}
+			<td> <input type="password" id="passfield{{ i[5] }}" style="
+			background-color: #090a0e;
+			/* border-color: #191a21; */
+			color: #6c7293;
+			border: none;
+			width: 50%;
+			height: 100%;
+			" value="{{ i[2] }}" disabled> <button type="button" class="btn btn-outline-secondary" style="border-color: #00d25b00;" onclick="showpass('{{ i[5] }}')">+/-</button> </td>
+		{% endif %}
+		<td> <input style="
+    background-color: #090a0e;
+    /* border-color: #191a21; */
+    color: #6c7293;
+    border: none;
+    width: 30%;
+    height: 100%;
+" value="FALSE" disabled> <button type="button" class="btn btn-outline-success" style="border-color: #00d25b00;" onclick='standard("{{ i[0] }}")'>+</button></td>
+		<td> {{ i[4] }} </td>
+		<td>
+			<div class="badge badge-outline-success">Visible</div>
+		</td>
+	{% endif %}
+  </tr>
+{% endfor %}
+
+{% for i in scan[2] %}
+  <tr>
+	{% if not i in scan[0] %}
+		{% if i[0] == connected %}
+		<td> <button type="button" class="btn btn-dark" onclick="disconnect()">Disconnect</button> </td>
+		{%else%}
+		<td> <button type="button" class="btn btn-dark">Connect</button> </td>
+		{% endif %}
+		<td> {{ i[0] }} </td>
+		<td> {{ i[1] }} </td>
+		{% if i[2] == None %}
+			<td> <input type="text" id="passfield{{ i[5] }}" style="
+			background-color: #090a0e;
+			/* border-color: #191a21; */
+			color: #6c7293;
+			border: none;
+			width: 50%;
+			height: 100%;
+			" value="{{ i[2] }}" disabled> </td>
+		{%else%}
+			<td> <input type="password" id="passfield{{ i[5] }}" style="
+			background-color: #090a0e;
+			/* border-color: #191a21; */
+			color: #6c7293;
+			border: none;
+			width: 50%;
+			height: 100%;
+			" value="{{ i[2] }}" disabled> <button type="button" class="btn btn-outline-secondary" style="border-color: #00d25b00;" onclick="showpass('{{ i[5] }}')">+/-</button> </td>
+		{% endif %}
+		<td> <input style="
+    background-color: #090a0e;
+    /* border-color: #191a21; */
+    color: #6c7293;
+    border: none;
+    width: 30%;
+    height: 100%;
+" value="FALSE" disabled> <button type="button" class="btn btn-outline-success" style="border-color: #00d25b00;" onclick='standard("{{ i[0] }}")'>+</button></td>
+		<td> {{ i[4] }} </td>
+		<td>
+			<div class="badge badge-outline-warning">Not Visible</div>
+		</td>
+	{% endif %}
+  </tr>
+{% endfor %}
+</tbody>

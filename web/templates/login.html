@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Homeye</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body id="backg">
+    <div class="login-dark">
+        <form method="post" action="/login" id="lform" style="background-color: #101010">
+            <div class="illustration "><h1 style="color: #28a745;">...</h1></div>
+            <h2 class="sr-only">Login Form</h2>
+            <div class="form-group"><input class="form-control" id="l" name="login" placeholder="Login"></div>
+            <div class="form-group"><input class="form-control" id="p" type="password" name="password" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-success btn-block" type="submit">Activate</button></div>
+            <a href="/power/usb/off" class="forgot">Power Off</a></form>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+
+</html>

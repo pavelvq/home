@@ -1,0 +1,13 @@
+.*/
+.*
+!.gitignore
+**/config.json
+config.json
+usbclient/build/*/*
+usbclient/**/*.lib
+usbclient/**/*.a
+netclient/build/*/*
+netclient/**/*.lib
+netclient/**/*.a
+startup/vdrives/*
+**/__pycache__/*

@@ -1,0 +1,50 @@
+<!-- import to the main window after all the elements! -->
+
+<style>
+#snackbar {
+  visibility: hidden;
+  width: 21.15%;
+  overflow: auto;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 85%;
+  bottom: 2px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 4s;
+  animation: fadein 0.5s, fadeout 0.5s 4s;
+}
+
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 2px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 2px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 2px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 2px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+</style>
+
+<div id="snackbar">Some text some message..</div>
+
+<script src="{{ url_for('static', filename='js/notifications.js') }}"></script>

@@ -1,0 +1,13 @@
+[Unit]
+Description=Swap from mass storage to rndis
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 rndisloader.py
+WorkingDirectory=/home/infinity/usbconnector/startup
+StandardOutput=inherit
+StandardError=inherit
+User=root
+
+[Install]
+WantedBy=multi-user.target
