@@ -1,0 +1,6 @@
+Flask-Login==0.6.3
+Flask==3.0.2
+pywifi==1.1.12
+ngrok==1.2.0
+PyMySQL==1.1.0
+psutil==5.9.8
